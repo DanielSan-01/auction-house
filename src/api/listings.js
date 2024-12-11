@@ -3,7 +3,7 @@ import { API_BASE_URL } from './config.js';
 // Fetch all listings
 export async function fetchAllListings() {
   try {
-    const res = await fetch(`${API_BASE_URL}/auction/listings`, {
+    const res = await fetch(`${API_BASE_URL}/auction/listings?_active=true`, {
       method: 'GET',
     });
     const data = await res.json();
@@ -22,7 +22,7 @@ export async function fetchAllListings() {
 // Fetch single listing
 export async function fetchSingleListing(id) {
   try {
-    const res = await fetch(`${API_BASE_URL}/auction/listings/${id}?_bids=true`, {
+    const res = await fetch(`${API_BASE_URL}/auction/listings/${id}?_bids=true&_seller=true`, {
       method: 'GET',
     });
     const data = await res.json();

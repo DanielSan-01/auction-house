@@ -11,9 +11,11 @@ export async function login(email, password) {
   });
   const data = await res.json();
 
+
   if (res.ok && data.data) {
     const user = data.data;
     localStorage.setItem('accessToken', user.accessToken);
+    localStorage.setItem('userName', user.name);
     return { success: true, data: user };
   } else {
     console.error('Login failed:', data);
