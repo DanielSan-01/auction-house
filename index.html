@@ -4,10 +4,20 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Auction House</title>
   </head>
-  <body>
-    <div id="app"></div>
+  <body class="flex flex-col min-h-screen ">
+    <header>
+      <nav>
+        <a href="/login" id="login"></a>
+        <a href="/auctions" id="auctions-link">Auctions</a>
+        <a href="/profile" id="profile-link">Profile</a>
+      </nav>
+    </header>
+    <main id="app" class="flex-1 container mx-auto py-4"></main>
+    <footer class="fixed bottom-0 w-full">
+      <p>&copy; 2021 Auction House</p>
+    </footer>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
