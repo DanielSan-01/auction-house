@@ -38,7 +38,7 @@ export async function fetchSingleListing(id) {
   }
 }
 
-// Create a listing
+
 export async function createListing(listing, accessToken, apiKey) {
   try {
     const res = await fetch(`${API_BASE_URL}/auction/listings`, {

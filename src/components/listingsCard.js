@@ -2,7 +2,7 @@ import { navigate } from '../main.js';
 
 export function createListingsCard(listing) {
   const card = document.createElement('div');
-  card.className = 'listing-card border rounded shadow-md p-4 bg-white';
+  card.className = 'listing-card border rounded shadow-md p-4 bg-zinc-400';
 
   if (listing.media && listing.media.length > 0) {
     const image = document.createElement('img');

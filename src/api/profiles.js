@@ -51,9 +51,11 @@ export async function updateProfile() {
 }
 
 export async function profileListings() {
+  console.log('Fetching profile listings...');
   const accessToken = localStorage.getItem('accessToken');
   const apiKey = localStorage.getItem('apiKey');
   const name = localStorage.getItem('userName');
+  console.log({ accessToken, apiKey, name });
 
   try {
     const res = await fetch(`${API_BASE_URL}/auction/profiles/${name}/listings`, {

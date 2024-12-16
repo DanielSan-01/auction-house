@@ -4,18 +4,20 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/styles/index.css" />
     <title>Auction House</title>
   </head>
-  <body class="flex flex-col min-h-screen ">
-    <header>
-      <nav>
-        <a href="/login" id="login"></a>
-        <a href="/auctions" id="auctions-link">Auctions</a>
-        <a href="/profile" id="profile-link">Profile</a>
+  <body class="flex flex-col min-h-screen bg-zinc-900">
+    <header class="bg-zinc-700 ">
+      <nav class="m-5 text-white">
+        <a href="/login" id="login" class="m-2 text-black bg-teal-500 hover:bg-teal-700 focus:outline-ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded text-sm px-5 py-2.5 text-center modal-open"></a>
+
+        <a href="/" id="auctions-link" class="m-2">Auctions</a>
+        <a href="/profile" id="profile-link" class="m-2">Profile</a>
       </nav>
     </header>
-    <main id="app" class="flex-1 container mx-auto py-4"></main>
-    <footer class="fixed bottom-0 w-full">
+    <main id="app" class="flex-1 container mx-auto py-4 text-white"></main>
+    <footer class="fixed bottom-0 w-full text-white">
       <p>&copy; 2021 Auction House</p>
     </footer>
     <script type="module" src="/src/main.js"></script>
