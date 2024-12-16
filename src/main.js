@@ -5,6 +5,12 @@ import { logout } from "./components/logout.js";
 import { HomePage } from './pages/Home.js';
 import { SingleListing } from './pages/SingleListing.js';
 import { Profile } from './pages/Profile.js';
+import { MyListings } from './pages/profile/listings.js';
+import { CreateListingPage } from './pages/CreateListing.js';
+import { EditProfile } from './pages/profile/editProfile.js';
+import { MyWins } from './pages/profile/wins.js';
+import { MyBids } from './pages/profile/bids.js';
+import { EditListing } from './pages/EditListing.js';
 
 function isLoggedIn() {
   return localStorage.getItem('accessToken') && localStorage.getItem('apiKey');
@@ -48,13 +54,19 @@ function router(route) {
     HomePage();
   } else if (route === "/profile") {
     Profile();
+  } else if (route === '/create-listing') {
+    CreateListingPage();
   } else if (route.startsWith('/profile/')) {
     const subRoute = route.split('/')[2];
     if (subRoute === 'listings') {
-    } else if (subRoute === 'wins') {
-    } else if (subRoute === 'bids') {
+      MyListings();
     } else if (subRoute === 'edit') {
-    } else {
+      EditProfile();
+    } else if (subRoute === 'wins') {
+      MyWins();
+    } else if (subRoute === 'bids') {
+      MyBids();
+    }  else {
       app.innerHTML = '<h1>404 - Profile Subpage Not Found</h1>';
     }
   } else if (route.startsWith('/listings/')) {
@@ -64,6 +76,9 @@ function router(route) {
     } else {
       app.innerHTML = '<h1>404 - Listing Not Found</h1>';
     }
+  } else if (route.startsWith('/edit-listing/')) {
+    const id = route.split('/')[2];
+    EditListing(id);
   } else {
     app.innerHTML = '<h1>404 - Page Not Found</h1>';
   }

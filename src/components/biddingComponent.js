@@ -32,7 +32,7 @@ export function BiddingComponent(listingId) {
   form.append(input, submitButton);
   biddingContainer.append(title, form, errorMessage, successMessage);
 
-  /* Form submission handler */
+ 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     errorMessage.classList.add('hidden');

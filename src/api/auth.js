@@ -1,6 +1,6 @@
 import { API_BASE_URL } from './config.js';
 
-// Login user
+
 export async function login(email, password) {
   const res = await fetch(`${API_BASE_URL}/auth/login`, {
       method: 'POST',
@@ -26,7 +26,7 @@ export async function login(email, password) {
   }
 }
 
-// Create API key
+
 export async function createApiKey(accessToken) {
   const res = await fetch(`${API_BASE_URL}/auth/create-api-key`, {
     method: 'POST',
@@ -48,7 +48,7 @@ export async function createApiKey(accessToken) {
   }
 }
 
-// Register new user
+
 export async function register(name, email, password) {
   const res = await fetch(`${API_BASE_URL}/auth/register`, {
     method: 'POST',

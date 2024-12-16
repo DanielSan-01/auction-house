@@ -1,16 +1,16 @@
-import { fetchProfile } from '../api/profiles.js'; // Make sure to implement this API call
+import { fetchProfile } from '../api/profiles.js';
 import { navigate } from '../main.js';
 
 export async function Profile() {
+  const card = document.createElement('div');
   const app = document.querySelector('#app');
   app.innerHTML = '';
 
   try {
-    const { data } = await fetchProfile(); // Assuming this fetches the logged-in user's profile
-    const container = document.createElement('div');
-    container.className = 'profile-page max-w-4xl mx-auto my-8 p-4 bg-white shadow rounded';
+    const container = document.createElement("div")
+    const { data } = await fetchProfile();
+    container.className = 'profile-page max-w-4xl mx-auto my-8 p-4 bg-zinc-400 shadow rounded';
 
-    // Banner
     if (data.banner && data.banner.url) {
       const banner = document.createElement('div');
       banner.style.backgroundImage = `url(${data.banner.url})`;
@@ -18,7 +18,7 @@ export async function Profile() {
       container.appendChild(banner);
     }
 
-    // Profile Info
+
     const profileInfo = document.createElement('div');
     profileInfo.className = 'profile-info text-center mb-8';
 
@@ -42,9 +42,11 @@ export async function Profile() {
     profileInfo.append(avatar, name, bio, credits);
     container.appendChild(profileInfo);
 
-    // Action Cards
+
     const actionsContainer = document.createElement('div');
-    actionsContainer.className = 'actions grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4';
+    actionsContainer.className = 'actions flex flex-col sm:flex-row flex-wrap justify-center gap-4';
+
+
 
     const actions = [
       { title: 'My Listings', description: 'View all your listings', link: '/profile/listings' },
@@ -54,11 +56,10 @@ export async function Profile() {
     ];
 
     actions.forEach((action) => {
-      const card = document.createElement('div');
-      card.className = 'action-card border rounded shadow p-4 text-center bg-gray-50';
+      card.className = 'action-card border rounded shadow p-4 text-center bg-gray-50 ';
 
       const cardTitle = document.createElement('h3');
-      cardTitle.className = 'text-xl font-bold mb-2';
+      cardTitle.className = 'text-xl font-bold mb-2 text-gray-800';
       cardTitle.textContent = action.title;
 
       const cardDesc = document.createElement('p');
