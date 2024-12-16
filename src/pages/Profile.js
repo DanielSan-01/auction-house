@@ -11,7 +11,6 @@ export async function Profile() {
     const { data } = await fetchProfile();
     container.className = 'profile-page max-w-4xl mx-auto my-8 p-4 bg-zinc-400 shadow rounded';
 
-
     if (data.banner && data.banner.url) {
       const banner = document.createElement('div');
       banner.style.backgroundImage = `url(${data.banner.url})`;
@@ -46,7 +45,7 @@ export async function Profile() {
 
     const actionsContainer = document.createElement('div');
     actionsContainer.className = 'actions flex flex-col sm:flex-row flex-wrap justify-center gap-4';
-    //actionsContainer.className = 'actions grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4';
+
 
 
     const actions = [

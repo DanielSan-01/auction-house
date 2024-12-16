@@ -5,15 +5,15 @@ import { navigate } from '../main.js';
 export function LoginForm() {
   const form = document.createElement('form');
   form.id = 'loginForm';
-  form.className = 'space-y-4 max-w-md mx-auto'; // Add spacing and centering for the form
+  form.className = 'space-y-4 max-w-md mx-auto'; 
 
-  // Email Label
+
   const emailLabel = document.createElement('label');
   emailLabel.htmlFor = 'email';
   emailLabel.textContent = 'Email:';
   emailLabel.className = 'block text-sm font-medium text-gray-700';
 
-  // Email Input
+
   const emailInput = document.createElement('input');
   emailInput.type = 'email';
   emailInput.id = 'email';
@@ -23,13 +23,13 @@ export function LoginForm() {
   emailInput.className =
     'bg-gray-100 border border-gray-300 text-sm rounded-sm block w-full p-2 lg:p-4';
 
-  // Password Label
+
   const passwordLabel = document.createElement('label');
   passwordLabel.htmlFor = 'password';
   passwordLabel.textContent = 'Password:';
   passwordLabel.className = 'block text-sm font-medium text-gray-700';
 
-  // Password Input
+
   const passwordInput = document.createElement('input');
   passwordInput.type = 'password';
   passwordInput.id = 'password';
@@ -39,19 +39,19 @@ export function LoginForm() {
   passwordInput.className =
     'bg-gray-100 border border-gray-300 text-sm rounded-sm block w-full p-2 lg:p-4';
 
-  // Submit Button
+
   const submitButton = document.createElement('button');
   submitButton.type = 'submit';
   submitButton.textContent = 'Login';
   submitButton.className =
     'w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-sm';
 
-  // Error Message
+
   const errorMessage = document.createElement('p');
   errorMessage.id = 'error-message';
   errorMessage.className = 'text-red-500 text-sm text-center';
 
-  // Append all elements to form
+
   form.append(
     emailLabel,
     emailInput,
@@ -61,7 +61,7 @@ export function LoginForm() {
     errorMessage
   );
 
-  // Event Listener for Form Submission
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 

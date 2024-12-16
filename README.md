@@ -1,12 +1,13 @@
-# auction_house
- 
-An auction site is looking to launch a website where users can add items to be bid on and bid on items other users have put up for auction.
-
-When a new user joins the website, they are given 1000 credits to use on the site. They can get credits by selling items and use credit by buying items.
-
-Non-registered users can search through the listings, but only registered users can make bids on listings.
+Develop a responsive auction website where users can list items for auction and bid on other users' items, managing credits earned and spent.
+##Description Create an auction website with functionality for adding and bidding on items, user registration, and credit management.
 
 
+"Bid on unique items and great deals! Explore, bid, and win your favorites in a secure and easy-to-use auction platform."
+The target audience for an auction website typically includes:
+Bargain Hunters: People looking for great deals and discounts on products.
+Collectors: Individuals seeking rare, unique, or vintage items.
+Resellers: Buyers intending to purchase items at low prices to resell for profit.
+Enthusiasts: People interested in specific categories, such as art, antiques, electronics, or fashion.
 Technical requirements:
 User registration with initial credits
 List and bid on auction items
@@ -16,8 +17,20 @@ Buildt with
 HTML
 JS
 Tailwind CSS
-Installation and Setup
 
+
+Technologies used
+Github projects for kanban board
+Figma for design and style guide
+github, cloud storage for the repo and kanbanboard
+Netlyfi
+Tailwind 3.0.0
+JS
+html
+
+
+
+Installation and Setup
 # Clone the repository
 
 
@@ -32,7 +45,5 @@ npm run build
 
 # Preview the production build
 npm run preview
-
-
-
-
+# Install vite
+npm nstall vite --save-dev  

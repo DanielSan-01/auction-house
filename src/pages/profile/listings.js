@@ -9,6 +9,14 @@ export async function MyListings() {
   container.className = 'listings-page max-w-4xl mx-auto my-8 p-4 bg-zinc-400 shadow rounded';
 
 
+  const backButton = document.createElement('button');
+  backButton.className = 'bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 mb-4';
+  backButton.textContent = '← Back';
+  backButton.addEventListener('click', () => {
+    history.back();
+  });
+  container.appendChild(backButton);
+
   const title = document.createElement('h1');
   title.className = 'text-3xl font-bold mb-6 text-center';
   title.textContent = 'My Listings';

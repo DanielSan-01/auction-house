@@ -8,6 +8,15 @@ export async function CreateListingPage() {
   const container = document.createElement('div');
   container.className = 'create-listing-page max-w-4xl mx-auto my-8 p-4 bg-zinc-400 shadow rounded';
 
+
+  const backButton = document.createElement('button');
+  backButton.className = 'bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 mb-4';
+  backButton.textContent = '← Back';
+  backButton.addEventListener('click', () => {
+    history.back();
+  });
+  container.appendChild(backButton);
+
   const title = document.createElement('h1');
   title.className = 'text-3xl font-bold mb-6 text-center';
   title.textContent = 'Create New Listing';
@@ -76,13 +85,13 @@ export async function CreateListingPage() {
   endsAtInput.max = formatDateTime(oneYearFromNow);
 
 
-  // Submit Button
+
   const submitButton = document.createElement('button');
   submitButton.type = 'submit';
   submitButton.textContent = 'Create Listing';
   submitButton.className = 'block w-full bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600';
 
-  // Append Inputs to Form
+
   form.append(
     titleLabel, titleInput,
     descLabel, descInput,
@@ -94,7 +103,7 @@ export async function CreateListingPage() {
   container.appendChild(form);
   app.appendChild(container);
 
-  // Form Submit Event Listener
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -106,7 +115,7 @@ export async function CreateListingPage() {
       return;
     }
 
-    // Prepare Listing Data
+
     const listing = {
       title: titleInput.value,
       description: descInput.value,
@@ -128,7 +137,7 @@ export async function CreateListingPage() {
   });
 }
 
-// Helper Functions
+
 function createLabel(text, forAttr) {
   const label = document.createElement('label');
   label.htmlFor = forAttr;

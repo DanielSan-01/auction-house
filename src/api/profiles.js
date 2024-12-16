@@ -25,37 +25,39 @@ export async function fetchProfile() {
   }
 }
 
-export async function updateProfile() {
+export async function updateProfile(updatedData) {
   const accessToken = localStorage.getItem('accessToken');
   const apiKey = localStorage.getItem('apiKey');
   const name = localStorage.getItem('userName');
 
   try {
     const res = await fetch(`${API_BASE_URL}/auction/profiles/${name}`, {
-      method: 'POST',
+      method: 'PUT', 
       headers: {
+        'Content-Type': 'application/json', 
         Authorization: `Bearer ${accessToken}`,
         'X-Noroff-API-Key': apiKey,
       },
+      body: JSON.stringify(updatedData),
     });
 
+    const data = await res.json();
+
     if (!res.ok) {
-      throw new Error('Failed to fetch profile.');
+      throw new Error(data.errors?.[0]?.message || 'Failed to update profile.');
     }
 
-    return await res.json();
+    return { success: true, data };
   } catch (error) {
-    console.error('Error fetching profile:', error.message);
-    throw error;
+    console.error('Error updating profile:', error.message);
+    return { success: false, message: error.message };
   }
 }
 
 export async function profileListings() {
-  console.log('Fetching profile listings...');
   const accessToken = localStorage.getItem('accessToken');
   const apiKey = localStorage.getItem('apiKey');
   const name = localStorage.getItem('userName');
-  console.log({ accessToken, apiKey, name });
 
   try {
     const res = await fetch(`${API_BASE_URL}/auction/profiles/${name}/listings`, {
@@ -83,7 +85,7 @@ export async function profileBids() {
   const name = localStorage.getItem('userName');
 
   try {
-    const res = await fetch(`${API_BASE_URL}/auction/profiles/${name}/bids`, {
+    const res = await fetch(`${API_BASE_URL}/auction/profiles/${name}/bids?_listings=true`, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -92,12 +94,12 @@ export async function profileBids() {
     });
 
     if (!res.ok) {
-      throw new Error('Failed to fetch profile.');
+      throw new Error('Failed to fetch bids.');
     }
 
     return await res.json();
   } catch (error) {
-    console.error('Error fetching profile:', error.message);
+    console.error('Error fetching bids:', error.message);
     throw error;
   }
 }

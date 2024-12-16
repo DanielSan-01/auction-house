@@ -14,7 +14,7 @@ export function createListingsCard(listing) {
 
   const title = document.createElement('h3');
   title.textContent = listing.title.length > 20 ? `${listing.title.substring(0, 20)}...` : listing.title;
-  title.className = 'font-bold text-lg mb-2';
+  title.className = 'font-bold text-lg mb-2 truncate overflow-hidden whitespace-nowrap';
   card.appendChild(title);
 
   const now = new Date();
@@ -36,7 +36,6 @@ export function createListingsCard(listing) {
   });
   card.appendChild(viewLink);
 
-
   return card;
 }
 
@@ -48,3 +47,4 @@ function calculateTimeRemaining(now, endsAt) {
 
   return `Time remaining: ${hours}h ${minutes}m ${seconds}s`;
 }
+
