@@ -16,7 +16,7 @@ export function BiddingComponent(listingId) {
   input.min = '1';
   input.placeholder = 'Enter your bid amount';
   input.required = true;
-  input.className = 'border rounded p-2 flex-grow';
+  input.className = 'border rounded p-2 flex-grow text-black';
 
   const submitButton = document.createElement('button');
   submitButton.type = 'submit';

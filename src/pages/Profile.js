@@ -2,15 +2,15 @@ import { fetchProfile } from '../api/profiles.js';
 import { navigate } from '../main.js';
 
 export async function Profile() {
-  const card = document.createElement('div');
   const app = document.querySelector('#app');
   app.innerHTML = '';
 
   try {
-    const container = document.createElement("div")
-    const { data } = await fetchProfile();
+    const container = document.createElement('div');
     container.className = 'profile-page max-w-4xl mx-auto my-8 p-4 bg-zinc-400 shadow rounded';
 
+    // Banner Section
+    const { data } = await fetchProfile();
     if (data.banner && data.banner.url) {
       const banner = document.createElement('div');
       banner.style.backgroundImage = `url(${data.banner.url})`;
@@ -18,7 +18,7 @@ export async function Profile() {
       container.appendChild(banner);
     }
 
-
+    // Profile Info Section
     const profileInfo = document.createElement('div');
     profileInfo.className = 'profile-info text-center mb-8';
 
@@ -42,40 +42,59 @@ export async function Profile() {
     profileInfo.append(avatar, name, bio, credits);
     container.appendChild(profileInfo);
 
-
+    // Actions Menu Section
     const actionsContainer = document.createElement('div');
-    actionsContainer.className = 'actions flex flex-col sm:flex-row flex-wrap justify-center gap-4';
-
-
+    actionsContainer.className =
+      'actions flex flex-col sm:flex-row flex-wrap justify-center gap-4';
 
     const actions = [
-      { title: 'My Listings', description: 'View all your listings', link: '/profile/listings' },
-      { title: 'My Wins', description: 'View all your auction wins', link: '/profile/wins' },
-      { title: 'My Bids', description: 'View all your bids', link: '/profile/bids' },
-      { title: 'Edit Profile', description: 'Update your profile information', link: '/profile/edit' },
+      {
+        title: 'My Listings',
+        description: 'View all your listings',
+        link: '/profile/listings',
+        isClickable: true, // Special case for fully clickable card
+      },
+      {
+        title: 'My Wins',
+        description: 'View all your auction wins',
+        link: '/profile/wins',
+      },
+      {
+        title: 'My Bids',
+        description: 'View all your bids',
+        link: '/profile/bids',
+      },
+      {
+        title: 'Edit Profile',
+        description: 'Update your profile information',
+        link: '/profile/edit',
+      },
     ];
 
+    // Create action cards
     actions.forEach((action) => {
-      card.className = 'action-card border rounded shadow p-4 text-center bg-gray-50 ';
+      const card = document.createElement('div');
+      card.className =
+        'action-card border rounded shadow p-4 text-center bg-gray-50 hover:bg-gray-100 cursor-pointer transition';
+
+      if (action.isClickable) {
+        // Fully clickable card for "My Listings"
+        card.addEventListener('click', () => navigate(action.link));
+        card.style.cursor = 'pointer';
+      } else {
+        // For other cards: Navigation only on card click
+        card.addEventListener('click', () => navigate(action.link));
+      }
 
       const cardTitle = document.createElement('h3');
       cardTitle.className = 'text-xl font-bold mb-2 text-gray-800';
       cardTitle.textContent = action.title;
 
       const cardDesc = document.createElement('p');
-      cardDesc.className = 'text-sm text-gray-600 mb-4';
+      cardDesc.className = 'text-sm text-gray-600';
       cardDesc.textContent = action.description;
 
-      const link = document.createElement('a');
-      link.className = 'text-blue-500 hover:underline';
-      link.href = action.link;
-      link.textContent = 'Go';
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        navigate(action.link);
-      });
-
-      card.append(cardTitle, cardDesc, link);
+      card.append(cardTitle, cardDesc);
       actionsContainer.appendChild(card);
     });
 

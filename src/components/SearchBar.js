@@ -8,7 +8,7 @@ export function SearchBar(onSearchResults) {
   input.type = 'text';
   input.placeholder = 'Search for listings...';
   input.className =
-    'w-3/4 px-4 py-2 border border-gray-300 rounded-l focus:outline-none focus:ring focus:ring-blue-300';
+    'w-3/4 px-4 py-2 border border-gray-300 text-black rounded-l focus:outline-none focus:ring focus:ring-blue-300';
 
   const button = document.createElement('button');
   button.textContent = 'Search';

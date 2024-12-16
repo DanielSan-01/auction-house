@@ -21,7 +21,7 @@ export function LoginForm() {
   emailInput.placeholder = 'example@noroff.no';
   emailInput.required = true;
   emailInput.className =
-    'bg-gray-100 border border-gray-300 text-sm rounded-sm block w-full p-2 lg:p-4';
+    'bg-gray-100 border border-gray-300 text-black text-sm rounded-sm block w-full p-2 lg:p-4';
 
 
   const passwordLabel = document.createElement('label');
@@ -37,7 +37,7 @@ export function LoginForm() {
   passwordInput.placeholder = '••••••••';
   passwordInput.required = true;
   passwordInput.className =
-    'bg-gray-100 border border-gray-300 text-sm rounded-sm block w-full p-2 lg:p-4';
+    'bg-gray-100 border border-gray-300 text-black  text-sm rounded-sm block w-full p-2 lg:p-4';
 
 
   const submitButton = document.createElement('button');
