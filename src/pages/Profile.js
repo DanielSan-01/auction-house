@@ -9,7 +9,7 @@ export async function Profile() {
     const container = document.createElement('div');
     container.className = 'profile-page max-w-4xl mx-auto my-8 p-4 bg-zinc-400 shadow rounded';
 
-    // Banner Section
+
     const { data } = await fetchProfile();
     if (data.banner && data.banner.url) {
       const banner = document.createElement('div');
@@ -18,7 +18,7 @@ export async function Profile() {
       container.appendChild(banner);
     }
 
-    // Profile Info Section
+
     const profileInfo = document.createElement('div');
     profileInfo.className = 'profile-info text-center mb-8';
 
@@ -42,7 +42,7 @@ export async function Profile() {
     profileInfo.append(avatar, name, bio, credits);
     container.appendChild(profileInfo);
 
-    // Actions Menu Section
+
     const actionsContainer = document.createElement('div');
     actionsContainer.className =
       'actions flex flex-col sm:flex-row flex-wrap justify-center gap-4';
@@ -52,7 +52,7 @@ export async function Profile() {
         title: 'My Listings',
         description: 'View all your listings',
         link: '/profile/listings',
-        isClickable: true, // Special case for fully clickable card
+        isClickable: true, 
       },
       {
         title: 'My Wins',
@@ -71,18 +71,18 @@ export async function Profile() {
       },
     ];
 
-    // Create action cards
+
     actions.forEach((action) => {
       const card = document.createElement('div');
       card.className =
         'action-card border rounded shadow p-4 text-center bg-gray-50 hover:bg-gray-100 cursor-pointer transition';
 
       if (action.isClickable) {
-        // Fully clickable card for "My Listings"
+
         card.addEventListener('click', () => navigate(action.link));
         card.style.cursor = 'pointer';
       } else {
-        // For other cards: Navigation only on card click
+
         card.addEventListener('click', () => navigate(action.link));
       }
 
